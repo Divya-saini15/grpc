@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package grpc;
+
+service GrpcService {
+  rpc CreateMessage(CreateMessageRequest) returns (MessageResponse) {}
+  rpc ReadMessage(ReadMessageRequest) returns (MessageResponse) {}
+  rpc UpdateMessage(UpdateMessageRequest) returns (MessageResponse) {}
+  rpc DeleteMessage(DeleteMessageRequest) returns (MessageResponse) {}
+}
+
+message CreateMessageRequest {
+  string content = 1;
+}
+
+message ReadMessageRequest {
+  int32 id = 1;
+}
+
+message UpdateMessageRequest {
+  int32 id = 1;
+  string content = 2;
+}
+
+message DeleteMessageRequest {
+  int32 id = 1;
+}
+
+message MessageResponse {
+  int32 id = 1;
+  string content = 2;
+}
